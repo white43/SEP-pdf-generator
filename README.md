@@ -1,6 +1,11 @@
 PDF Generator Project
 =====
 
+This is a simple project for converting static HTML and web links into PDF files. Under the hood it utilises `go` for
+backend services, `Vue.js` for frontend services, and `Headless Chromium` for the HTML-to-PDF process. This repository
+contains the main parts (directories): `frontend` (user interface), `api` (backend that the frontend will be 
+communicating), and `daemon` (for processing long-running background jobs).
+
 Quick Start
 -----
 
@@ -28,6 +33,7 @@ Under the rood directory of the project run the following commands:
 2. `yarn install`
 3. `yarn serve`
 4. Navigate to http://localhost:8081 to ensure that frontend is working
+5. Navigate to http://localhost:8025 to receive an email upon registration
 
 Shutdown
 
