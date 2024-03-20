@@ -2,6 +2,7 @@ version: '3.8'
 services:
   app:
     build: ./api
+    container_name: app
     networks:
       - torrens
     volumes:
@@ -25,6 +26,7 @@ services:
 
   daemon:
     build: ./daemon
+    container_name: daemon
     networks:
       - torrens
     volumes:
@@ -43,27 +45,31 @@ services:
 
   db:
     image: library/mysql:5.7
+    container_name: db
     networks:
       - torrens
     ports:
       - "3306:3306"
     volumes:
       - mysql57-data:/var/lib/mysql
+      - ./db.sql:/opt/db.sql
     environment:
       - "MYSQL_RANDOM_ROOT_PASSWORD=yes"
       - "MYSQL_USER=sep401"
       - "MYSQL_PASSWORD=sandfish carbon opal dripping untaxed"
       - "MYSQL_DATABASE=sep401"
     healthcheck:
-      test: mysql -u root -proot -e "SELECT 1;" || exit 1
+      test: mysql -u $$MYSQL_USER -p"$$MYSQL_PASSWORD" -e "SELECT 1;" || exit 1
 
   chromium:
     image: chromedp/headless-shell:116.0.5845.14
+    container_name: chromium
     networks:
       - torrens
 
   smtp:
     image: mailhog/mailhog:v1.0.0
+    container_name: stmp
     networks:
       - torrens
     ports:

@@ -4,24 +4,20 @@ PDF Generator Project
 Quick Start
 -----
 
-To run this project we need to have `golang` and `nodejs` (`yarn`) installed.
+To run this project we need to have `golang` and `nodejs` (`yarn 1`) installed.
 
 Backend
 -----
 
 Under the rood directory of the project run the following commands:
 
-1. `golang build -o ./api/app ./api`
-2. `golang build -o ./daemon/app ./daemon`
+1. `go build -o ./api/app ./api`
+2. `go build -o ./daemon/app ./daemon`
 3. `docker network create torrens`
-4. `docker compose up -d db`
-5. Check `docker ps` to ensure that `db` service is running
-6. Connect to `mysql` at localhost:3306
-7. Create a database `sep401`
-8. Create tables from `db.sql` in the created database
-9. `docker compose up -d`
-10. Check `docker ps` to ensure that five containers are running (`app`, `daemon`, `db`, `chromiun`, `smtp`)
-11. Check that http://localhost:8080/v1/user/balance returns message `not authorized`
+4. `docker compose up -d`
+5. Check `docker ps` to ensure that five containers are up and running (`app`, `daemon`, `db`, `chromiun`, `smtp`)
+6. `docker exec -it db sh` and run `mysql -u $MYSQL_USER -p"$MYSQL_PASSWORD" -D $MYSQL_DATABASE < /opt/db.sql` inside the container
+7. Check that http://localhost:8080/v1/user/balance returns message `not authorized`
 
 Frontend
 -----
