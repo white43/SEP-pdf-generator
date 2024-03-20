@@ -2,7 +2,7 @@ package errors
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/white43/sep401/pkg/dto"
+	"github.com/white43/SEP401-pdf-generator/pkg/dto"
 )
 
 type Service struct {

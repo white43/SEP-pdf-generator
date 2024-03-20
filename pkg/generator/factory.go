@@ -1,7 +1,7 @@
 package generator
 
 import (
-	"github.com/white43/sep401/pkg/jobs"
+	"github.com/white43/SEP401-pdf-generator/pkg/jobs"
 	"log"
 )
 

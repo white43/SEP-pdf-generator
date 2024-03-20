@@ -1,4 +1,4 @@
-module github.com/white43/sep401
+module github.com/white43/SEP401-pdf-generator
 
 go 1.20
 

@@ -2,8 +2,8 @@ package jobs
 
 import (
 	"database/sql"
-	"github.com/white43/sep401/pkg/database"
-	"github.com/white43/sep401/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/database"
+	"github.com/white43/SEP401-pdf-generator/pkg/errors"
 )
 
 type JobRepository struct {

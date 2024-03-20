@@ -2,8 +2,8 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/white43/sep401/pkg/errors"
-	"github.com/white43/sep401/pkg/jobs"
+	"github.com/white43/SEP401-pdf-generator/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/jobs"
 )
 
 func GetAppResult(response *errors.Service, jobService *jobs.Service) fiber.Handler {

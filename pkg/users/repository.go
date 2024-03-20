@@ -1,8 +1,8 @@
 package users
 
 import (
-	"github.com/white43/sep401/pkg/database"
-	"github.com/white43/sep401/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/database"
+	"github.com/white43/SEP401-pdf-generator/pkg/errors"
 )
 
 type UserRepository struct {

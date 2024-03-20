@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/white43/sep401/pkg/errors"
-	"github.com/white43/sep401/pkg/users"
+	"github.com/white43/SEP401-pdf-generator/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/users"
 )
 
 func NewAuth(handler fiber.Handler, repository *users.UserRepository, apperr *errors.Service) fiber.Handler {

@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/white43/sep401/pkg/dto"
-	apperr "github.com/white43/sep401/pkg/errors"
-	"github.com/white43/sep401/pkg/users"
+	"github.com/white43/SEP401-pdf-generator/pkg/dto"
+	apperr "github.com/white43/SEP401-pdf-generator/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/users"
 )
 
 func GetBalance(response *apperr.Service, userService *users.Service) fiber.Handler {

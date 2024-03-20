@@ -2,9 +2,9 @@ package jobs
 
 import (
 	"github.com/GoWebProd/uuid7"
-	"github.com/white43/sep401/pkg/dto"
-	"github.com/white43/sep401/pkg/errors"
-	"github.com/white43/sep401/pkg/users"
+	"github.com/white43/SEP401-pdf-generator/pkg/dto"
+	"github.com/white43/SEP401-pdf-generator/pkg/errors"
+	"github.com/white43/SEP401-pdf-generator/pkg/users"
 	"unicode"
 )
 
