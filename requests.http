@@ -1,0 +1,60 @@
+###
+# Registration
+###
+POST http://127.0.0.1:8080/v1/user/register
+Content-Type: application/json
+
+{"email": "XXX", "first_name": "", "last_name": ""}
+
+###
+# Login
+###
+POST http://127.0.0.1:8080/v1/user/login
+Content-Type: application/json
+
+{"email": "XXX", "password": "123"}
+
+###
+# New HTML job
+###
+POST http://127.0.0.1:8080/v1/app/html
+Authorization: XXX
+Content-Type: application/json
+
+{
+  "payload": "<html><body>XXX</body></html>"
+}
+
+###
+# Balance top-up
+###
+POST http://127.0.0.1:8080/v1/user/topup
+Authorization: XXX
+Content-Type: application/json
+
+{
+  "amount": "10.00"
+}
+
+###
+# Get balance
+###
+GET http://127.0.0.1:8080/v1/user/balance
+Authorization: XXX
+
+###
+# New URL job
+###
+POST http://127.0.0.1:8080/v1/app/url
+Authorization: XXX
+Content-Type: application/json
+
+{
+  "payload": "https://example"
+}
+
+###
+# Get the result
+###
+GET http://127.0.0.1:8080/v1/app/result/XXX
+Authorization: XXX

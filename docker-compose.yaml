@@ -1,0 +1,78 @@
+version: '3.8'
+services:
+  app:
+    build: ./api
+    networks:
+      - torrens
+    volumes:
+      - ./api/app:/opt/app
+    ports:
+      - "8080:8080"
+    environment:
+      - "PORT=8080"
+
+      - "DB_HOST=db"
+      - "DB_PORT=3306"
+      - "DB_USER=sep401"
+      - "DB_PASSWORD=sandfish carbon opal dripping untaxed"
+      - "DB_NAME=sep401"
+
+      - "SMTP_HOST=smtp"
+      - "SMTP_PORT=1025"
+    links:
+      - "db:db"
+      - "smtp:smtp"
+
+  daemon:
+    build: ./daemon
+    networks:
+      - torrens
+    volumes:
+      - ./daemon/app:/opt/app
+    environment:
+      - "DB_HOST=db"
+      - "DB_PORT=3306"
+      - "DB_USER=sep401"
+      - "DB_PASSWORD=sandfish carbon opal dripping untaxed"
+      - "DB_NAME=sep401"
+
+      - "CHROME_HEADLESS_URL=ws://chromium:9222/"
+    links:
+      - "db:db"
+      - "chromium:chromium"
+
+  db:
+    image: library/mysql:5.7
+    networks:
+      - torrens
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql57-data:/var/lib/mysql
+    environment:
+      - "MYSQL_RANDOM_ROOT_PASSWORD=yes"
+      - "MYSQL_USER=sep401"
+      - "MYSQL_PASSWORD=sandfish carbon opal dripping untaxed"
+      - "MYSQL_DATABASE=sep401"
+    healthcheck:
+      test: mysql -u root -proot -e "SELECT 1;" || exit 1
+
+  chromium:
+    image: chromedp/headless-shell:116.0.5845.14
+    networks:
+      - torrens
+
+  smtp:
+    image: mailhog/mailhog:v1.0.0
+    networks:
+      - torrens
+    ports:
+      - "8025:8025"
+
+volumes:
+  mysql57-data: {}
+
+networks:
+  torrens:
+    external: true
+
